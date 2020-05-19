@@ -1,10 +1,8 @@
 import React from "react";
 import BreakInterval from "./break-interval";
 import SessionLength from "./session-length";
-import Timer from "./Timer";
+import Timer from "./timer";
 import "./App.css";
-
-let title = "Pomodoro Clock in React";
 
 class App extends React.Component {
     constructor() {
@@ -25,7 +23,7 @@ class App extends React.Component {
 
         this.onToggleInterval = this.onToggleInterval.bind(this);
         this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this);
-        this.onPlayStopTimer = this.onPlayStopTimer.bind(this);
+        this.handlePlayStopTimer = this.handlePlayStopTimer.bind(this);
         this.onResetTimer = this.onResetTimer.bind(this);
     }
 
@@ -84,21 +82,24 @@ class App extends React.Component {
     }
 
     onResetTimer() {
+        // this.stopTimer();
+        // this.props.resetTimer();
         this.setState({
             timerMinute: this.state.sessionLength,
         });
     }
 
-    onPlayStopTimer(isPlay) {
+    handlePlayStopTimer(isPlay) {
         this.setState({
             isPlay: isPlay,
         });
     }
 
     render() {
+        const title = "Pomodoro Clock in React";
         return (
             <main>
-                {title}
+                <h1>{title}</h1>
                 <section className="interval-length-container">
                     <BreakInterval
                         isPlay={this.state.isPlay}
@@ -119,7 +120,7 @@ class App extends React.Component {
                     updateTimerMinute={this.onUpdateTimerMinute}
                     toggleInterval={this.onToggleInterval}
                     resetTimer={this.onResetTimer}
-                    onPlayStopTimer={this.handlePlayStopTimer}
+                    handlePlayStopTimer={this.handlePlayStopTimer}
                 />
             </main>
         );

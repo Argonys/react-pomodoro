@@ -3,4 +3,5 @@ import ReactDOM from "react-dom";
 import "./style.css";
 import App from "./components/app";
 
-ReactDOM.render(<App />, document.getElementById("pomodoro"));
+const app = document.getElementById("pomodoro");
+ReactDOM.render(<App />, app);

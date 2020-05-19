@@ -18,7 +18,7 @@ class Timer extends React.Component {
 
     playTimer() {
         let intervalId = setInterval(this.decreaseTimer, 1000);
-        this.props.onPlayStopTimer(true);
+        this.props.handlePlayStopTimer(true);
         this.setState({
             intervalId: intervalId,
         });
@@ -59,13 +59,13 @@ class Timer extends React.Component {
 
     stopTimer() {
         clearInterval(this.state.intervalId);
-        this.props.onPlayStopTimer(false);
+        this.props.handlePlayStopTimer(false);
     }
 
     resetTimer() {
         this.stopTimer();
         this.props.resetTimer();
-        this.props.onPlayStopTimer(false);
+        this.props.handlePlayStopTimer(false);
         this.setState({
             timerSecond: 0,
             isSession: true,
@@ -73,6 +73,11 @@ class Timer extends React.Component {
     }
 
     render() {
+        const play = "Play";
+        const stop = "Stop";
+        const refresh = "Refresh";
+        const timerMiddle = ":";
+        const button = "button";
         return (
             <section>
                 <section className="timer-container">
@@ -82,7 +87,7 @@ class Timer extends React.Component {
                             : "Break Time"}
                     </h4>
                     <span className="timer">{this.props.timerMinute}</span>
-                    <span className="timer">:</span>
+                    <span className="timer">{timerMiddle}</span>
                     <span className="timer">
                         {this.state.timerSecond === 0
                             ? "00"
@@ -92,9 +97,15 @@ class Timer extends React.Component {
                     </span>
                 </section>
                 <section className="timer-actions">
-                    <button onClick={this.playTimer}>Play</button>
-                    <button onClick={this.stopTimer}>Stop</button>
-                    <button onClick={this.resetTimer}>Refresh</button>
+                    <button type={button} onClick={this.playTimer}>
+                        {play}
+                    </button>
+                    <button type={button} onClick={this.stopTimer}>
+                        {stop}
+                    </button>
+                    <button type={button} onClick={this.resetTimer}>
+                        {refresh}
+                    </button>
                 </section>
             </section>
         );
