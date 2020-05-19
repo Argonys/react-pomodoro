@@ -96,7 +96,7 @@ class App extends React.Component {
     }
 
     render() {
-        const title = "Pomodoro Clock in React";
+        const title = "My Pomodoro Clock";
         return (
             <main>
                 <h1>{title}</h1>

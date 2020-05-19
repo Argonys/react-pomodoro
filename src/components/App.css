@@ -1,3 +1,9 @@
+body {
+    background-color: #e8f1ff;
+    color: #6c6c6c;
+    font-style: italic;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -8,7 +14,7 @@ main {
 
 h1 {
     font-size: 4rem;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 h4 {
@@ -30,16 +36,18 @@ h4 {
 }
 
 button {
+    font-style: italic;
     padding: 5px 10px;
     margin: 0 10px;
     height: 25px;
-    background-color: #263646;
+    background-color: #6c6c6c;
     border: none;
     outline: none;
     cursor: pointer;
-    color: #eee;
+    color: #e8f1ff;
     width: 70px;
-    border-radius: 2px;
+    border-radius: 8px;
+    box-shadow: -2px 2px 5px #505050;
 }
 
 button:disabled {
@@ -52,12 +60,12 @@ button:disabled {
 }
 
 .timer-container {
-    border: 2px solid #263646;
+    border: 2px solid #6c6c6c;
     margin-top: 40px;
     border-radius: 25px;
     width: 250px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 4px #6c6c6c;
     padding: 10px;
 }
 
